@@ -15,6 +15,7 @@ boolean MqttUtil::Connect() {
 }
 
 boolean MqttUtil::Refresh() {
+  // DISABLED by virtue of this immediate return
   return true;
   if(! Connect()) {
     return false;
@@ -28,6 +29,7 @@ boolean MqttUtil::PublishTemperature(unsigned long timestamp, uint8_t device, fl
   snprintf(message_buffer_, message_buffer_size_, "{\"timestamp\": %ld, \"value\": %s, \"units\": \"celsius degrees\"}", timestamp, value_buffer_);
   Serial.print(topic_buffer_);
   Serial.println(message_buffer_);
+  // DISABLED by virtue of this constant return value instead of invoking publish
   return true;
   //return mqtt_client_->publish(topic_buffer_, message_buffer_);
 }

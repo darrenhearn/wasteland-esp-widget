@@ -20,6 +20,8 @@ namespace analog_inputs {
   const uint8_t kDrain = 3;
 }
 
+// REMINDER: MQTT is effectively disabled for now -- search for DISABLED in MqttUtil.cpp
+
 struct WiFiCredentials {
   char* ssid;
   char* password;
